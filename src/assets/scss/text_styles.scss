@@ -1,0 +1,45 @@
+$text-color-default: #6a6a6a;
+.small-text-form-m {
+    font-size: 19px;
+}
+
+.medium-text-form-m {
+    font-size: 21px;
+}
+
+.biger-text-form-m {
+    font-size: 24px;
+}
+
+.text-limit {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.text-style-bold {
+    font-weight: bold;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.text-white {
+    color: white
+}
+
+body {
+    color: $text-color-default;
+}
+
+@media screen and (max-width: 500px) {
+    .small-text-form-m {
+        font-size: 14px;
+    }
+    
+    .medium-text-form-m {
+        font-size: 15px;
+    }
+}
