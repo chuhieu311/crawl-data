@@ -6,10 +6,12 @@ export const arrPage = [{
                 _s: "#chi-tiet tr",
                 _d: [{
                     title: "td ~ td.last",
-                    description: ".last"
+                    value: ".last"
                 }]
             },
-            imageUrl: "#product-magiczoom @ src"
+            imageUrl: "#product-magiczoom @ src",
+            title: "#product-name",
+            description: "#gioi-thieu"
         }
     },
     {
