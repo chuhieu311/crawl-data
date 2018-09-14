@@ -8,8 +8,8 @@ const defaut_price = {
 var price = defaut_price;
 
 function getPrice(htmlContent, option) {
-    // console.log(getPriceTikiPage(tiki));
-    console.log(getPriceLazadaPage(lazada));
+    console.log(getPriceTikiPage(tiki));
+    // console.log(getPriceLazadaPage(lazada));
     // getPriceFahasaPage(htmlContent);
     // getPriceShoppePage(htmlContent);
     // getPriceVinabookPage(htmlContent);
@@ -38,24 +38,23 @@ function getPrice(htmlContent, option) {
 function getPriceTikiPage(content) {
     var parser = new DOMParser();
     var htmlDoc = parser.parseFromString(content, "text/html");
-    var arrBook = htmlDoc.getElementsByClassName("product-item search-div-product-item");
-    if (arrBook && arrBook.length > 0) {
-        var book = arrBook[0];
-        var arrTmp = book.getElementsByClassName("final-price");
-        if (arrTmp && arrTmp.length > 0) {
-            price.finalPrice = arrTmp[0].textContent;
+    var book = htmlDoc.querySelector(".product-item.search-div-product-item");
+    if (book) {
+        var infoTmp = book.querySelector(".final-price");
+        if (infoTmp) {
+            price.finalPrice = infoTmp.textContent;
         }
-        arrTmp = book.getElementsByClassName("price-regular");
-        if (arrTmp && arrTmp.length > 0) {
-            price.priceRegular = arrTmp[0].textContent;
+        infoTmp = book.querySelector(".price-regular");
+        if (infoTmp) {
+            price.priceRegular = infoTmp.textContent;
         }
-        arrTmp = book.getElementsByClassName("sale-tag sale-tag-square");
-        if (arrTmp && arrTmp.length > 0) {
-            price.sale = arrTmp[0].textContent;
+        infoTmp = book.querySelector(".sale-tag.sale-tag-square");
+        if (infoTmp) {
+            price.sale = infoTmp.textContent;
         }
-        arrTmp = book.getElementsByClassName("search-a-product-item");
-        if (arrTmp && arrTmp.length > 0) {
-            price.url = arrTmp[0].href;
+        infoTmp = book.querySelector(".search-a-product-item");
+        if (infoTmp) {
+            price.url = infoTmp.href;
             if (price.url) {
                 let removeIndex = price.url.indexOf("?");
                 price.url = price.url.substring(0, removeIndex);
@@ -68,62 +67,10 @@ function getPriceTikiPage(content) {
     return price;
 }
 
-function getPriceLazadaPage(content) {
-    var parser = new DOMParser();
-    var htmlDoc = parser.parseFromString(content, "text/html");
-    var arrBook = htmlDoc.getElementsByTagName("div");
-    if (arrBook && arrBook.length > 0) {
-        var book = arrBook[0];
-        var arrTmp = book.getElementsByClassName("c13VH6");
-        if (arrTmp && arrTmp.length > 0) {
-            price.finalPrice = arrTmp[0].textContent;
-        }
-        arrTmp = book.getElementsByClassName("c1-B2V");
-        if (arrTmp && arrTmp.length > 0) {
-            price.priceRegular = arrTmp[0].textContent;
-        }
-        arrTmp = book.getElementsByClassName("c1hkC1");
-        if (arrTmp && arrTmp.length > 0) {
-            price.sale = arrTmp[0].textContent;
-        }
-        arrTmp = book.querySelectorAll("div.cRjKsc>a")
-        if (arrTmp && arrTmp.length > 0) {
-            price.url = arrTmp[0].href;
-            if (price.url) {
-                let removeIndex = price.url.indexOf("?");
-                price.url = price.url.substring(0, removeIndex);
-            }
-        }
-        if (book.classList.contains("out-of-stock")) {
-            price.status = 1;
-        }
-    }
-    return price;
-}
+function getPriceLazadaPage(content) {}
 
-function getPriceFahasaPage(content) {
-    var parser = new DOMParser();
-    var htmlDoc = parser.parseFromString(content, "text/html");
-    var arrBook = htmlDoc.getElementsByClassName("product-item search-div-product-item");
-    if (arrBook && arrBook.length > 0) {
-        var book = arrBook[0];
-    }
-}
+function getPriceFahasaPage(content) {}
 
-function getPriceShoppePage(content) {
-    var parser = new DOMParser();
-    var htmlDoc = parser.parseFromString(content, "text/html");
-    var arrBook = htmlDoc.getElementsByClassName("product-item search-div-product-item");
-    if (arrBook && arrBook.length > 0) {
-        var book = arrBook[0];
-    }
-}
+function getPriceShoppePage(content) {}
 
-function getPriceVinabookPage(content) {
-    var parser = new DOMParser();
-    var htmlDoc = parser.parseFromString(content, "text/html");
-    var arrBook = htmlDoc.getElementsByClassName("product-item search-div-product-item");
-    if (arrBook && arrBook.length > 0) {
-        var book = arrBook[0];
-    }
-};
+function getPriceVinabookPage(content) {}
