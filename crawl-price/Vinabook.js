@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+var vinabook = `	<!DOCTYPE html>
 <!--[if lt IE 7]>
 <html lang="vi"  xmlns="http://www.w3.org/1999/xhtml"  class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7">
 <![endif]-->
@@ -2065,4 +2065,4 @@ analytics.page()
 });</script>
 
 <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"e9befd5a0b","applicationID":"24297815","transactionName":"ZVdabRBUXxVYVU0KDFwdbUsLGh4PV1JcG01CWkg=","queueTime":0,"applicationTime":584,"atts":"SRBZG1hOTBs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
-</html>
+</html>`;
